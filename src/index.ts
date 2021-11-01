@@ -42,7 +42,7 @@ router.get("/.well-known/lnurlp/:username", async (ctx, next) => {
     } else {
       ctx.body = {
         status: "OK",
-        callback: `http://ln.runcitadel.space/.well-known/lnurlp/${username}`,
+        callback: `https://ln.runcitadel.space/.well-known/lnurlp/${username}`,
         tag: "payRequest",
         maxSendable: 100000000,
         minSendable: 1000,
