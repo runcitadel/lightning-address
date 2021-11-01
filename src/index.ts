@@ -36,7 +36,7 @@ router.get("/.well-known/lnurlp/:username", async (ctx, next) => {
         (await apiResponse.text()).replace(
           usernames[username.toLowerCase()],
           "ln.runcitadel.space"
-        )
+        ).replace("http://", "https://")
       );
       ctx.body = json;
     } else {
