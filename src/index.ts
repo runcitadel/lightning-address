@@ -12,7 +12,8 @@ const router = new Router();
 const agent = new SocksProxyAgent(proxy);
 
 const usernames: Record<string, string> = {
-  test123: "2vyghz33kgx2q3hket3roi3juitylgqxyox6x4hhepty5zvrieerokyd.onion",
+  "bitcoinduck21": "2vyghz33kgx2q3hket3roi3juitylgqxyox6x4hhepty5zvrieerokyd.onion",
+  "blackhole21": "2vyghz33kgx2q3hket3roi3juitylgqxyox6x4hhepty5zvrieerokyd.onion",
 };
 
 router.get("/.well-known/lnurlp/:username", async (ctx, next) => {
