@@ -12,16 +12,21 @@ const router = new Router();
 const agent = new SocksProxyAgent(proxy);
 
 const usernames: Record<string, string> = {
-    "test123": "st5owtpsa2e62yf64luxogbecj7lk3t5vmesshsnrzu2untyf2i4t4ad.onion"
+    "test123": "2vyghz33kgx2q3hket3roi3juitylgqxyox6x4hhepty5zvrieerokyd.onion"
 }
+
 router.get("/.well-known/lnurlp/:username", async (ctx) => {
     const username: string = ctx.params.username;
+    // Other request query params (all as string)
+    const query = ctx.querystring;
+    console.log(query);
+
     if (usernames[username.toLowerCase()]) {
         // send a request to the users onion
         const apiResponse = await fetch(`http://${usernames[username.toLowerCase()]}/.well-known/lnurlp/${username}`, {
             agent
         });
-        const json = await apiResponse.json();
+        const json = JSON.parse((await apiResponse.text()).replace(usernames[username.toLowerCase()], "ln.runcitadel.space"));
         ctx.body = json;
     } else {
         ctx.status = 404;
