@@ -19,7 +19,6 @@ router.get("/.well-known/lnurlp/:username", async (ctx, next) => {
   const username: string = ctx.params.username;
   // Other request query params (all as string)
   const query = ctx.querystring ? `?${ctx.querystring}` : "";
-  console.log(query);
 
   if (usernames[username.toLowerCase()]) {
     if (query) {
