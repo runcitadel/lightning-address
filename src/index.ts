@@ -32,13 +32,7 @@ router.get("/.well-known/lnurlp/:username", async (ctx, next) => {
           agent,
         }
       );
-      const json = JSON.parse(
-        (await apiResponse.text()).replace(
-          usernames[username.toLowerCase()],
-          "ln.runcitadel.space"
-        ).replace("http://", "https://")
-      );
-      ctx.body = json;
+      ctx.body = await apiResponse.json();
     } else {
       ctx.body = {
         status: "OK",
@@ -46,7 +40,7 @@ router.get("/.well-known/lnurlp/:username", async (ctx, next) => {
         tag: "payRequest",
         maxSendable: 100000000,
         minSendable: 1000,
-        metadata: `[["text/identifier", "${username}@ln.runcitadel.space"], ["text/plain", "Sats for ${username}@ln.runcitadel.space"]]`,
+        metadata: `[["text/identifier", "${username}@${usernames[username.toLowerCase()]}"], ["text/plain", "Sats for ${username}@${usernames[username.toLowerCase()]}"]]`,
         commentAllowed: 0,
       };
     }
