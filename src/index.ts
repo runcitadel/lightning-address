@@ -18,12 +18,12 @@ const usernames: Record<string, string> = {
 router.get("/.well-known/lnurlp/:username", async (ctx) => {
     const username: string = ctx.params.username;
     // Other request query params (all as string)
-    const query = ctx.querystring;
+    const query = ctx.querystring ? `?${ctx.querystring}` : "";
     console.log(query);
 
     if (usernames[username.toLowerCase()]) {
         // send a request to the users onion
-        const apiResponse = await fetch(`http://${usernames[username.toLowerCase()]}/.well-known/lnurlp/${username}`, {
+        const apiResponse = await fetch(`http://${usernames[username.toLowerCase()]}/.well-known/lnurlp/${username}${query}`, {
             agent
         });
         const json = JSON.parse((await apiResponse.text()).replace(usernames[username.toLowerCase()], "ln.runcitadel.space"));
