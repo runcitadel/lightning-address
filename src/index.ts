@@ -15,7 +15,7 @@ const usernames: Record<string, string> = {
   "bitcoinduck21": "2vyghz33kgx2q3hket3roi3juitylgqxyox6x4hhepty5zvrieerokyd.onion",
   "blackhole21": "2vyghz33kgx2q3hket3roi3juitylgqxyox6x4hhepty5zvrieerokyd.onion",
   "satoshi": "st5owtpsa2e62yf64luxogbecj7lk3t5vmesshsnrzu2untyf2i4t4ad.onion",
-  "kwadde21": "6dto7yiknvvvpmtel2ckwutf3cr6bt2ubmg2v5u7ssqsjojgcvoqrzyd.onion"
+  "kwadde": "6dto7yiknvvvpmtel2ckwutf3cr6bt2ubmg2v5u7ssqsjojgcvoqrzyd.onion"
 };
 
 router.get("/.well-known/lnurlp/:username", async (ctx, next) => {
