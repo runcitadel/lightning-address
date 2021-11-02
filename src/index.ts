@@ -51,6 +51,7 @@ router.get("/.well-known/lnurlp/:username", async (ctx, next) => {
   }
   await next();
 });
+
 app.use(router.routes());
 app.use(router.allowedMethods());
 app.listen(3000);

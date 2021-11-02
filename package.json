@@ -13,5 +13,6 @@
     "@types/koa__router": "^8.0.8",
     "@types/node": "^16.11.6"
   },
-  "type": "module"
+  "type": "module",
+  "license": "AGPL-3.0-or-later"
 }
