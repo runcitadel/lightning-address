@@ -67,19 +67,15 @@ router.get("/.well-known/lnurlp/:username", async (ctx, next) => {
       );
       ctx.body = await apiResponse.json();
     } else {
-      // send a request to the users onion
-      const apiResponse = await fetch(
-        `http://${
-          usernames[username.toLowerCase()]
-        }/.well-known/lnurlp/${username}`,
-        {
-          agent,
-          headers: {
-            "X-Forwarded-For": "ln.runcitadel.space",
-          },
-        }
-      );
-      ctx.body = await apiResponse.json();
+      ctx.body = {
+        status: "OK",
+        callback: `https://ln.runcitadel.space/.well-known/lnurlp/${username}`,
+        tag: "payRequest",
+        maxSendable: 100000000,
+        minSendable: 1000,
+        metadata: `[["text/identifier", "${username}@${usernames[username.toLowerCase()]}"], ["text/plain", "Sats for ${username}@${usernames[username.toLowerCase()]}"]]`,
+        commentAllowed: 0,
+      };
     }
   } else {
     ctx.status = 404;
