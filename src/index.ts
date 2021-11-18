@@ -89,4 +89,5 @@ router.get("/.well-known/lnurlp/:username", async (ctx, next) => {
 
 app.use(router.routes());
 app.use(router.allowedMethods());
-app.listen(3000);
+const server = https.createServer(config.https.options, app.callback());
+server.listen(config.https.port);
