@@ -61,7 +61,7 @@ router.get("/.well-known/lnurlp/:username", async (ctx, next) => {
         {
           agent,
           headers: {
-            "X-Forwarded-By": "ln.runcitadel.space",
+            "X-Forwarded-For": "ln.runcitadel.space",
           },
         }
       );
@@ -75,7 +75,7 @@ router.get("/.well-known/lnurlp/:username", async (ctx, next) => {
         {
           agent,
           headers: {
-            "X-Forwarded-By": "ln.runcitadel.space",
+            "X-Forwarded-For": "ln.runcitadel.space",
           },
         }
       );
