@@ -90,4 +90,12 @@ router.get("/.well-known/lnurlp/:username", async (ctx, next) => {
 app.use(router.routes());
 app.use(router.allowedMethods());
 const server = https.createServer(config.https.options, app.callback());
-server.listen(config.https.port);
+server.listen(443, function(err) {
+  if (!!err) {
+    console.error('HTTPS server FAIL: ', err, (err && err.stack));
+  }
+  else {
+    console.log(`HTTPS server OK: https://${config.domain}:${config.https.port}`);
+  }
+});
+
