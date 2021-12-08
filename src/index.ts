@@ -48,6 +48,7 @@ const usernames: Record<string, string> = {
   leon: "uat2fettt2qzjczyqpxthnkohisynenzblahnszyna3dqw2vsih6hkid.onion",
   leonmw : "uat2fettt2qzjczyqpxthnkohisynenzblahnszyna3dqw2vsih6hkid.onion",
   erik: "lalqnv4xqk4xu64gsmwfpwu6ugddog4y4agqk5tzux2dwwju4m5dy3yd.onion",
+  swedishfrenchpress: "lalqnv4xqk4xu64gsmwfpwu6ugddog4y4agqk5tzux2dwwju4m5dy3yd.onion",
 };
 
 router.get("/.well-known/lnurlp/:username", async (ctx, next) => {
